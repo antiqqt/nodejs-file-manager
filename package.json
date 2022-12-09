@@ -1,0 +1,12 @@
+{
+  "name": "antiqqt-fm",
+  "version": "1.0.0",
+  "description": "NodeJS file manager",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "keywords": [],
+  "author": "antiqqt",
+  "license": "ISC"
+}
