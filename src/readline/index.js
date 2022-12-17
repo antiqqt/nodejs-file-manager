@@ -1,6 +1,7 @@
-import * as readline from 'node:readline/promises';
+import * as readline from 'node:readline';
 import { stdin, stdout } from 'node:process';
 import { promptUser, sayByeUser } from '../messages/index.js';
+import { executeCommand } from '../commands/index.js';
 
 export const createReadline = () => {
   const rl = readline.createInterface({ input: stdin, output: stdout });
@@ -8,7 +9,7 @@ export const createReadline = () => {
   promptUser();
 
   rl.on('line', (input) => {
-    console.log(`Received: ${input}`);
+    executeCommand(input);
   });
 
   rl.on('SIGINT', () => {

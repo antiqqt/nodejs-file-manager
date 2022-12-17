@@ -7,26 +7,38 @@ export const showCurrentDirectory = () => {
   console.log(createCurrentDirectoryMsg());
 };
 
-const createCurrentDirectoryMsg = () =>
-  appendNewLineTo(`You are currently in ${cwd()}`);
-
 export const greetUser = () => {
   console.log(createGreetUserMsg());
 };
-
-const createGreetUserMsg = () =>
-  appendNewLineTo(`Welcome to the File Manager, ${username}!`);
 
 export const sayByeUser = () => {
   console.log(createByeUserMsg());
 };
 
-const createByeUserMsg = () =>
-  insertNewLineTo(`Thank you for using File Manager, ${username}, goodbye!`);
-
 export const promptUser = () => {
   console.log(createUserPromptMsg());
 };
 
+export const showInvalidInput = () => {
+  console.log(createInvalidInputMsg());
+};
+
+export const showOperationFailed = () => {
+  console.log(createOperationFailedMsg());
+};
+
+const createCurrentDirectoryMsg = () =>
+  appendNewLineTo(`You are currently in ${cwd()}`);
+
+const createGreetUserMsg = () =>
+  appendNewLineTo(`Welcome to the File Manager, ${username}!`);
+
+const createByeUserMsg = () =>
+  insertNewLineTo(`Thank you for using File Manager, ${username}, goodbye!`);
+
 const createUserPromptMsg = () =>
   appendNewLineTo(`You can print any command to try the File Manager`);
+
+const createInvalidInputMsg = () => appendNewLineTo(`Invalid input`);
+
+const createOperationFailedMsg = () => appendNewLineTo(`Operation failed`);
