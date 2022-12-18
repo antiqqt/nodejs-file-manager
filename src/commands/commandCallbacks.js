@@ -13,6 +13,8 @@ import {
   listDir,
 } from '../functionality/navigation/index.js';
 
+import { executeOSCommand } from '../functionality/os/index.js';
+
 const callbacks = {
   up: goToUppperDir,
   cd: changeDir,
@@ -23,6 +25,7 @@ const callbacks = {
   cp: copyFile,
   mv: moveFile,
   rm: deleteFile,
+  os: executeOSCommand,
 };
 
 export default new Map(Object.entries(callbacks));
