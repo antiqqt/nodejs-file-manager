@@ -3,6 +3,8 @@ import {
   showCurrentDirectory,
 } from '../../messages/index.js';
 import { readdir } from 'node:fs/promises';
+import { appendNewLineTo } from '../../utils/index.js';
+import { EOL } from 'node:os';
 
 const { chdir, cwd } = process;
 
@@ -29,7 +31,9 @@ export const listDir = async () => {
   const table = entries.filter(checkIsFileOrFolder).map(addTypeToEnt);
   const sortedByName = [...table].sort(sortEntriesByName);
   const sortedByNameAndType = [...sortedByName].sort(sortEntriesByType);
+
   console.table(sortedByNameAndType);
+  console.log('');
 };
 
 const addTypeToEnt = (entry) => {
