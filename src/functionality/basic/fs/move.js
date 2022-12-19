@@ -5,7 +5,7 @@ const move = async (args) => {
   await copy(args);
   await deleteFile(args);
 
-  console.log('The file was moved successfully\n');
+  console.log('The file was moved successfully. End of moving process :)\n');
 };
 
 export default move;

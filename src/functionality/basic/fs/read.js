@@ -1,7 +1,4 @@
 import { createReadStream } from 'node:fs';
-import { pipeline } from 'node:stream/promises';
-
-const { stdout } = process;
 
 const read = async (args) => {
   const [path] = args;
@@ -17,7 +14,7 @@ const read = async (args) => {
       reject(error);
     });
 
-    rs.on('close', () => {
+    rs.on('end', () => {
       console.log('The file was read successfully\n');
       resolve();
     });
