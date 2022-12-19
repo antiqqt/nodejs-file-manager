@@ -3,8 +3,6 @@ import {
   showCurrentDirectory,
 } from '../../messages/index.js';
 import { readdir } from 'node:fs/promises';
-import { appendNewLineTo } from '../../utils/index.js';
-import { EOL } from 'node:os';
 
 const { chdir, cwd } = process;
 

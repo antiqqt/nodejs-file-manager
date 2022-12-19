@@ -22,6 +22,8 @@ import {
   decompressFile,
 } from '../functionality/zlib/index.js';
 
+import { shutdown } from '../utils/index.js';
+
 const callbacks = {
   up: goToUppperDir,
   cd: changeDir,
@@ -36,6 +38,7 @@ const callbacks = {
   hash: calculateHash,
   compress: compressFile,
   decompress: decompressFile,
+  '.exit': shutdown,
 };
 
 export default new Map(Object.entries(callbacks));
