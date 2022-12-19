@@ -5,16 +5,16 @@ import { unlink } from 'node:fs/promises';
 
 const copy = async (args) => {
   const [path, pathToNewDir] = args;
-
-  const rs = createReadStream(path);
   const pathToNewFile = join(pathToNewDir, basename(path));
-  const ws = createWriteStream(pathToNewFile);
 
   const cleanup = async () => {
     unlink(pathToNewFile);
   };
 
   try {
+    const rs = createReadStream(path);
+    const ws = createWriteStream(pathToNewFile);
+
     await pipeline(rs, ws);
 
     console.log('The file was copied successfully\n');
