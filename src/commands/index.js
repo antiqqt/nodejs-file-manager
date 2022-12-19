@@ -1,7 +1,7 @@
 import { showInvalidInput, showOperationFailed } from '../messages/index.js';
 import commandCallbacks from './commandCallbacks.js';
 
-export const executeCommand = (input) => {
+export const executeCommand = async (input) => {
   try {
     const { command, args } = parseCommand(input);
 
@@ -9,7 +9,7 @@ export const executeCommand = (input) => {
       ? commandCallbacks.get(command)
       : showInvalidInput;
 
-    currentCb(args);
+    await currentCb(args);
   } catch {
     showOperationFailed();
   }
