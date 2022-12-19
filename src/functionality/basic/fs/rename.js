@@ -13,6 +13,9 @@ const rename = async (args) => {
   } catch (e) {
     if (e.code === NoEntErrorCode) {
       await fsRename(path, pathToNew);
+
+      console.log('The file was renamed successfully\n');
+
       return;
     }
     throw e;

@@ -7,7 +7,11 @@ export const executeOSCommand = (args) => {
 
   switch (arg) {
     case '--EOL': {
-      console.log(appendNewLineTo(`Your default system End-Of-Line is ${JSON.stringify(EOL)}`));
+      console.log(
+        appendNewLineTo(
+          `Your default system End-Of-Line is ${JSON.stringify(EOL)}`
+        )
+      );
       break;
     }
 
@@ -18,6 +22,7 @@ export const executeOSCommand = (args) => {
       }));
 
       console.table(cpuInfo);
+      console.log('');
       break;
     }
 

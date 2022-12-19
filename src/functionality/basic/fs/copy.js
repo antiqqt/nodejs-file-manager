@@ -16,6 +16,8 @@ const copy = async (args) => {
 
   try {
     await pipeline(rs, ws);
+
+    console.log('The file was copied successfully\n');
   } catch (error) {
     await cleanup();
     throw error;

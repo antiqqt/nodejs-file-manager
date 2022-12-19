@@ -7,6 +7,8 @@ const create = async (args) => {
   
   const path = join(cwd(), filename);
   await writeFile(path, '', { flag: 'wx' });
+
+  console.log('The file was created successfully\n');
 };
 
 export default create;
