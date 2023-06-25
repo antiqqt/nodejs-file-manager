@@ -4,41 +4,29 @@ import { username } from '../user/index.js';
 const { cwd } = process;
 
 export const showCurrentDirectory = () => {
-  console.log(createCurrentDirectoryMsg());
+  console.log(appendNewLineTo(`You are currently in ${cwd()}`));
 };
 
 export const greetUser = () => {
-  console.log(createGreetUserMsg());
+  console.log(appendNewLineTo(`Welcome to the File Manager, ${username}!`));
 };
 
 export const sayByeUser = () => {
-  console.log(createByeUserMsg());
+  console.log(
+    prependNewLineTo(`Thank you for using File Manager, ${username}, goodbye!`)
+  );
 };
 
 export const promptUser = () => {
-  console.log(createUserPromptMsg());
+  console.log(
+    appendNewLineTo(`You can print any command to try the File Manager`)
+  );
 };
 
 export const showInvalidInput = () => {
-  console.log(createInvalidInputMsg());
+  console.log(`Invalid input`);
 };
 
 export const showOperationFailed = () => {
-  console.log(createOperationFailedMsg());
+  console.log(`Operation failed`);
 };
-
-const createCurrentDirectoryMsg = () =>
-  appendNewLineTo(`You are currently in ${cwd()}`);
-
-const createGreetUserMsg = () =>
-  appendNewLineTo(`Welcome to the File Manager, ${username}!`);
-
-const createByeUserMsg = () =>
-  prependNewLineTo(`Thank you for using File Manager, ${username}, goodbye!`);
-
-const createUserPromptMsg = () =>
-  appendNewLineTo(`You can print any command to try the File Manager`);
-
-const createInvalidInputMsg = () => appendNewLineTo(`Invalid input`);
-
-const createOperationFailedMsg = () => appendNewLineTo(`Operation failed`);
