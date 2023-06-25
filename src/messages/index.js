@@ -1,4 +1,4 @@
-import { appendNewLineTo, insertNewLineTo } from '../utils/index.js';
+import { appendNewLineTo, prependNewLineTo } from '../utils/index.js';
 import { username } from '../user/index.js';
 
 const { cwd } = process;
@@ -34,7 +34,7 @@ const createGreetUserMsg = () =>
   appendNewLineTo(`Welcome to the File Manager, ${username}!`);
 
 const createByeUserMsg = () =>
-  insertNewLineTo(`Thank you for using File Manager, ${username}, goodbye!`);
+  prependNewLineTo(`Thank you for using File Manager, ${username}, goodbye!`);
 
 const createUserPromptMsg = () =>
   appendNewLineTo(`You can print any command to try the File Manager`);

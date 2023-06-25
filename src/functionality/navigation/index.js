@@ -1,8 +1,7 @@
-import {
-  showInvalidInput,
-  showCurrentDirectory,
-} from '../../messages/index.js';
 import { readdir } from 'node:fs/promises';
+import {
+  showInvalidInput
+} from '../../messages/index.js';
 
 const { chdir, cwd } = process;
 
@@ -13,14 +12,12 @@ const EntryTypes = {
 
 export const goToUppperDir = () => {
   chdir('../');
-  showCurrentDirectory();
 };
 
 export const changeDir = (args) => {
   const [path] = args;
   if (!path) showInvalidInput();
   chdir(path);
-  showCurrentDirectory();
 };
 
 export const listDir = async () => {
