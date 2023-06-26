@@ -1,8 +1,4 @@
-import {
-  showCurrentDirectory,
-  showInvalidInput,
-  showOperationFailed
-} from '../messages/index.js';
+import { showInvalidInput, showOperationFailed } from '../messages/index.js';
 import commandCallbacks from './commandCallbacks.js';
 
 export const executeCommand = async (input) => {

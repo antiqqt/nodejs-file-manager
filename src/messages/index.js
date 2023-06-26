@@ -19,7 +19,7 @@ export const sayByeUser = () => {
 
 export const promptUser = () => {
   console.log(
-    appendNewLineTo(`You can print any command to try the File Manager`)
+    appendNewLineTo(`Give it a try and print a command!`)
   );
 };
 

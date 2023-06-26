@@ -1,27 +1,21 @@
 import { createReadStream, createWriteStream } from 'node:fs';
-import { join, basename } from 'path';
 import { pipeline } from 'node:stream/promises';
-import { unlink } from 'node:fs/promises';
+import { basename, join } from 'path';
+import { validatePath } from '../../../utils/index.js';
 
 const copy = async (args) => {
   const [path, pathToNewDir] = args;
+  await validatePath(path);
+  await validatePath(pathToNewDir);
+
   const pathToNewFile = join(pathToNewDir, basename(path));
 
-  const cleanup = async () => {
-    unlink(pathToNewFile);
-  };
+  const rs = createReadStream(path);
+  const ws = createWriteStream(pathToNewFile);
 
-  try {
-    const rs = createReadStream(path);
-    const ws = createWriteStream(pathToNewFile);
+  await pipeline(rs, ws);
 
-    await pipeline(rs, ws);
-
-    console.log('The file was copied successfully\n');
-  } catch (error) {
-    await cleanup();
-    throw error;
-  }
+  console.log('The file was copied successfully\n');
 };
 
 export default copy;

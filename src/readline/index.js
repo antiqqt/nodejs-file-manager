@@ -1,7 +1,11 @@
-import * as readline from 'node:readline';
 import { stdin, stdout } from 'node:process';
-import { promptUser, sayByeUser, showCurrentDirectory } from '../messages/index.js';
+import * as readline from 'node:readline';
 import { executeCommand } from '../commands/index.js';
+import {
+  promptUser,
+  sayByeUser,
+  showCurrentDirectory
+} from '../messages/index.js';
 import { shutdown } from '../utils/index.js';
 
 export const createReadline = () => {

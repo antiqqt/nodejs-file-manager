@@ -10,11 +10,11 @@ const EntryTypes = {
   Directory: 'directory',
 };
 
-export const goToUppperDir = () => {
+export const goToUppperDir = async () => {
   chdir('../');
 };
 
-export const changeDir = (args) => {
+export const changeDir = async (args) => {
   const [path] = args;
   if (!path) showInvalidInput();
   chdir(path);
