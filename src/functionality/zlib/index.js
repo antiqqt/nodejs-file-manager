@@ -1,7 +1,7 @@
 import { createReadStream, createWriteStream } from 'node:fs';
 import { pipeline } from 'node:stream/promises';
 import { createBrotliCompress, createBrotliDecompress } from 'node:zlib';
-import { appendNewLineTo } from '../../utils/index.js';
+import { appendNewLineTo, validatePath } from '../../utils/index.js';
 
 const compressFile = async (args) => {
   const [path, pathToDest] = args;
